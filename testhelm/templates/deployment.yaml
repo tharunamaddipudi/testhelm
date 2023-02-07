@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: redis-dep-helm
+   namespace: ns-kyn-001160-rcp-poc-dev
+spec:
+  selector:
+     matchLabels:
+        Lrcpredis: rcpredishelm
+  template:
+    metadata:
+      labels:
+         Lrcpredis: rcpredishelm
+    spec:
+      hostname: redishelm
+      serviceAccount: sa-rcp-poc
+      serviceAccountName: sa-rcp-poc
+      volumes:
+        - name: crypto-assets
+          persistentVolumeClaim:
+             claimName: rcp-pvc-redis-redis
+      containers:
+         - name: redishelm
+           image: na.artifactory.taas.kyndryl.net/gts-tia-rcp-docker-local/gts-rcp-core/redis:v_5.14.2020-05-13_10-50-37.6
+           resources:
+            requests:
+              memory: "1024Mi"
+              cpu: "50m"
+           # limits:
+           #   memory: "8000Mi"
+           #   cpu: "8m"
+           command: ["sh" ,"-c" ,"/bin/start_redis.sh"]
+           ports:
+             - containerPort: 6379
+           env:
+             - name: REDIS_PASSWORD
+               valueFrom:
+                 secretKeyRef:
+                     name: be-secret
+                     key: REDIS_PASSWORD
+             - name: REDIS_HOST
+               valueFrom:
+                 configMapKeyRef:
+                     name: be-configmap
+                     key: REDIS_HOST
+             - name: REDIS_URL
+               valueFrom:
+                 configMapKeyRef:
+                     name: be-configmap
+                     key: REDIS_URL
+           envFrom:
+             - configMapRef:
+                 name: be-configmap
+           volumeMounts:
+             - name: crypto-assets
+               mountPath: "/crypto_files/keys"
+      imagePullSecrets:
+        - name: rcp-kyndryl-artifactory-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+   name: redishelm
+   namespace: ns-kyn-001160-rcp-poc-dev
+spec:
+  selector:
+    Lrcpredis: rcpredishelm
+  ports:
+    - name: "port-6379"
+      port: 6379
+      targetPort: 6379
+      protocol: TCP
+  type: NodePort
+---
+
