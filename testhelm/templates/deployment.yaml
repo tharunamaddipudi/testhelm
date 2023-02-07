@@ -55,7 +55,7 @@ spec:
              - name: crypto-assets
                mountPath: "/crypto_files/keys"
       imagePullSecrets:
-        - name: rcp-kyndryl-artifactory-secret
+        - name: rcp-kyndryl-oneid-artifactory-secret
 ---
 apiVersion: v1
 kind: Service
