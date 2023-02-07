@@ -3,12 +3,12 @@ entries:
   testhelm:
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2023-02-07T15:37:31.7706433+05:30"
+    created: "2023-02-07T16:05:42.0144123+05:30"
     description: A Helm chart for Kubernetes
-    digest: 9b13835c768a8044b11cb1b1aaf053afbbbc000a4d5ac558ada3c3cb1e9a2ef5
+    digest: 882c26cd9f0cd464734887e00f9ef5bf54761d3f12bc0bfcdfefede08ab45f20
     name: testhelm
     type: application
     urls:
-    - https://raw.githubusercontent.com/tharunamaddipudi/testhelm/main/testhelm-0.8.0.tgz
+    - testhelm-0.8.0.tgz
     version: 0.8.0
-generated: "2023-02-07T15:37:31.7639984+05:30"
+generated: "2023-02-07T16:05:42.0062521+05:30"
