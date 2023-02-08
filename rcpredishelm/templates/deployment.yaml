@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-   name: redis-dep-helm
+   name: rcpredishelm
    namespace: ns-kyn-001160-rcp-poc-dev
 spec:
   selector:
@@ -12,7 +12,7 @@ spec:
       labels:
          Lrcpredis: rcpredishelm
     spec:
-      hostname: redishelm
+      hostname: rcpredishelm
       serviceAccount: sa-rcp-poc
       serviceAccountName: sa-rcp-poc
       volumes:
@@ -20,7 +20,7 @@ spec:
           persistentVolumeClaim:
              claimName: rcp-pvc-redis-redis
       containers:
-         - name: redishelm
+         - name: rcpredishelm
            image: na.artifactory.taas.kyndryl.net/gts-tia-rcp-docker-local/gts-rcp-core/redis:v_5.14.2020-05-13_10-50-37.6
            resources:
             requests:
@@ -55,12 +55,12 @@ spec:
              - name: crypto-assets
                mountPath: "/crypto_files/keys"
       imagePullSecrets:
-        - name: rcp-kyndryl-oneid-artifactory-secret
+        - name: rcp-kyndryl-artifactory-secret
 ---
 apiVersion: v1
 kind: Service
 metadata:
-   name: redishelm
+   name: rcpredishelm
    namespace: ns-kyn-001160-rcp-poc-dev
 spec:
   selector:
@@ -72,4 +72,3 @@ spec:
       protocol: TCP
   type: NodePort
 ---
-

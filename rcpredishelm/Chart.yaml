@@ -1,6 +1,6 @@
 apiVersion: v2
-name: testhelm
-description: A Helm chart for Kubernetes
+name: rcpredishelm
+description: A Helm chart for Kubernetes-rcp-redis-helm
 
 # A chart can be either an 'application' or a 'library' chart.
 #
