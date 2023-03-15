@@ -1,5 +1,0 @@
----
-releases:
-   - name: rcpredishelm
-     chart: ./rcpredishelm
-     installed: true
