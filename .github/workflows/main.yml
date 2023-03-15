@@ -8,12 +8,16 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-    - name: Create kubeconfig
-      run: |
-        mkdir -p /tmp/.kube
-        echo ${{ secrets.KUBE_CONFIG }} | base64 --decode > /tmp/.kube/config
-        cat /tmp/.kube/config
-    - name: Use context
-      run: kubectl config use-context ns-kyn-001160-rcp-poc-dev/api-xxoueqiy-eastus-aroapp-io:6443/tharuna.maddipudi@kyndryl.com
+    - name: OpenShift Login
+      uses: redhat-actions/oc-login@v1
+       with:
+         openshift_server_url: https://api.xxoueqiy.eastus.aroapp.io:6443
+         openshift_token: sha256~MdBM2Pu3TuICnbrxjecgEAZ0i7qEwv-7UpAqCOkdBF0
+         openshift_username:
+         openshift_password:
+         insecure_skip_tls_verify: 
+         certificate_authority_data: 
+         namespace: ns-kyn-001160-rcp-poc-dev
+         reveal_cluster_name: 
     - name: check pods list
       run: kubectl get pods
