@@ -10,9 +10,9 @@ jobs:
       uses: actions/checkout@v2
     - name: Create kubeconfig
       run: |
-        mkdir -p ${HOME}/.kube
-        echo ${{ secrets.KUBE_CONFIG }} | base64 --decode > ${HOME}/.kube/config
-        cat ${HOME}/.kube/config
+        mkdir -p /tmp/.kube
+        echo ${{ secrets.KUBE_CONFIG }} | base64 --decode > /tmp/.kube/config
+        cat /tmp/.kube/config
     - name: Use context
       run: kubectl config use-context ns-kyn-001160-rcp-poc-dev/api-xxoueqiy-eastus-aroapp-io:6443/tharuna.maddipudi@kyndryl.com
     - name: check pods list
