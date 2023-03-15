@@ -1,4 +1,4 @@
-name: Get pods
+name: Deploy
 on: [push]
 
 jobs:
@@ -8,8 +8,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@v1
-      - uses: actions-hub/kubectl@master
-        env:
-          KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }} | base64 --decode 
-        with:
-          args: get pods
+      #- uses: actions-hub/kubectl@master
+      - name: create Kubeconfig
+        run:
+          mkdir ${HOME}/.kube
+          echo ${{secrets.KUBE_CONFIG }} | base64 --decode > ${HOME}/.kube/config
+          cat ${HOME}/.kube/config
+      - name: use context
+        run: kubectl config use-context ns-kyn-001160-rcp-poc-dev/api-xxoueqiy-eastus-aroapp-io:6443/tharuna.maddipudi@kyndryl.com
+      - name: pods list
+        run: kubectl get pods
+        #env:
+         # KUBE_CONFIG: ${{ secrets.KUBE_CONFIG }} | base64 --decode 
+        #with:
+          #args: get pods
