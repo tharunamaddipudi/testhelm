@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@v1
       #- uses: actions-hub/kubectl@master
       - name: create Kubeconfig
-        run:
+        run: |
           mkdir ${HOME}/.kube
           echo ${{secrets.KUBE_CONFIG }} | base64 --decode > ${HOME}/.kube/config
           cat ${HOME}/.kube/config
