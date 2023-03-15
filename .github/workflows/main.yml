@@ -11,9 +11,10 @@ jobs:
       #- uses: actions-hub/kubectl@master
       - name: create Kubeconfig
         run: |
-          mkdir ${HOME}/.kube
-          echo ${{secrets.KUBE_CONFIG }} | base64 --decode > ${HOME}/.kube/config
-          cat ${HOME}/.kube/config
+          #mkdir ${HOME}/.kube
+          mkdir /home/tharuna.maddipudi/.kube
+          echo ${{secrets.KUBE_CONFIG }} | base64 --decode > /home/tharuna.maddipudi/.kube/config
+          cat /home/tharuna.maddipudi/.kube/config
       - name: use context
         run: kubectl config use-context ns-kyn-001160-rcp-poc-dev/api-xxoueqiy-eastus-aroapp-io:6443/tharuna.maddipudi@kyndryl.com
       - name: pods list
