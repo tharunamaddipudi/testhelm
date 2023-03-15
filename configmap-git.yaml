@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap-git
+  namespace: ns-kyn-001160-rcp-poc-dev
+data:
+ who: me 
