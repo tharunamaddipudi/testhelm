@@ -5,3 +5,4 @@ metadata:
   namespace: ns-kyn-001160-rcp-poc-dev
 data:
  who: me 
+ how: same
