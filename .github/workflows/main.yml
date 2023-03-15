@@ -14,4 +14,4 @@ jobs:
 
       - uses: actions-hub/kubectl@master
         with:
-          args: get pods
+          args: KUBE_CONFIG get pods
