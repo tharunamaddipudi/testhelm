@@ -10,6 +10,8 @@ jobs:
           OPENSHIFT_SERVER: api.xxoueqiy.eastus.aroapp.io
           openshift_server_url: https://api.xxoueqiy.eastus.aroapp.io:6443
           openshift_token: ${{ secrets.OPENSHIFT_TOKEN }}
+          namespace: ns-kyn-001160-rcp-poc-dev
+          user: tharuna.maddipudi@kyndryl.com/api-xxoueqiy-eastus-aroapp-io:6443
           insecure_skip_tls_verify: true
       - uses: actions-hub/kubectl@master
         with:
