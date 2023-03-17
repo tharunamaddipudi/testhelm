@@ -10,7 +10,7 @@ jobs:
       #- uses: actions-hub/kubectl@master
       - uses: redhat-actions/oc-login@v1
         env:
-          openshift_server_url: https://api.xxoueqiy.eastus.aroapp.io:6443
+          openshift_server_url: ${{ secrets.openshift_server_url }}
           openshift_token: ${{ secrets.OPENSHIFT_TOKEN }}
           insecure_skip_tls_verify: true
       - uses: actions-hub/kubectl@master
