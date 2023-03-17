@@ -9,7 +9,7 @@ jobs:
       #- uses: actions/checkout@v1
       #- uses: actions-hub/kubectl@master
       - uses: redhat-actions/oc-login@v1
-        env:
+        with:
           OPENSHIFT_SERVER: api.xxoueqiy.eastus.aroapp.io
           openshift_server_url: https://api.xxoueqiy.eastus.aroapp.io:6443
           openshift_token: ${{ secrets.OPENSHIFT_TOKEN }}
