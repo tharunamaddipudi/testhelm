@@ -3,7 +3,6 @@ on:
   push:
     branches:    
       - 'main'
-
 env:
   OPENSHIFT_SERVER: api.xxoueqiy.eastus.aroapp.io
 
@@ -15,7 +14,7 @@ jobs:
         openshift_token: ${{ secrets.OPENSHIFT_TOKEN }}
         insecure_skip_tls_verify: true
 
-   - name: test PODS
-     uses: CIO/action-deploy-ocapp@v1
-      with:
-        Branch: main
+   - name: Test POD's
+   - uses: actions-hub/kubectl@master
+     with:
+       args: get pods
