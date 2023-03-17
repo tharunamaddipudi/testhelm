@@ -3,8 +3,8 @@ on:
   push:
     branches:    
       - 'main'
-env:
-  OPENSHIFT_SERVER: api.xxoueqiy.eastus.aroapp.io
+#env:
+#  OPENSHIFT_SERVER: api.xxoueqiy.eastus.aroapp.io
 jobs:
  deploy:
    name: Authenticate and set context
