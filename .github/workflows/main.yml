@@ -1,0 +1,20 @@
+name: Deploy MVP Sample webapp
+on:
+  push:
+    branches:    
+      - 'main'
+env:
+  OPENSHIFT_SERVER: api.xxoueqiy.eastus.aroapp.io
+
+jobs:
+   - name: Authenticate and set context
+     uses: redhat-actions/oc-login@v1
+     with:
+        openshift_server_url: https://api.xxoueqiy.eastus.aroapp.io:6443
+        openshift_token: ${{ secrets.OPENSHIFT_TOKEN }}
+        insecure_skip_tls_verify: true
+
+   - name: Test POD's
+   - uses: actions-hub/kubectl@master
+     with:
+       args: get pods
