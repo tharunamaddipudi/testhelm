@@ -1,5 +1,7 @@
 name: POD's Check
 on: [push]
+env:
+  OPENSHIFT_SERVER: api.xxoueqiy.eastus.aroapp.io
 jobs:
   deploy:
     name: POD's Check-in
