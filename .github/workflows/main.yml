@@ -9,11 +9,11 @@ jobs:
     steps:
       - uses: redhat-actions/oc-login@v1
         with:
-          openshift_server_url: https://api.xxoueqiy.eastus.aroapp.io:6443
+          openshift_server_url: ${{secrets.OPENSHIFT_SERVER_URL }}
           openshift_token: ${{ secrets.OPENSHIFT_TOKEN }}
           namespace: ns-kyn-001160-rcp-poc-dev
           openshift_username: tharuna.maddipudi@kyndryl.com/api-xxoueqiy-eastus-aroapp-io:6443
-          insecure_skip_tls_verify: false
+          insecure_skip_tls_verify: true
           reveal_cluster_name: false
       - uses: actions-hub/kubectl@master
         with:
