@@ -10,7 +10,7 @@ jobs:
       - uses: redhat-actions/oc-login@v1
         with:
           openshift_server_url: https://api.xxoueqiy.eastus.aroapp.io:6443
-          openshift_token: sha256~tAQheXrvjvNMa-Ce0TClH1ruXLG2-7IjYWgXBzM-q0g
+          openshift_token: sha256~k0zRFr5rmVrPnq9Pn7oxrcs12nxp7t0Etp4FtlMPIZw
           namespace: ns-kyn-001160-rcp-poc-dev
           openshift_username: tharuna.maddipudi@kyndryl.com/api-xxoueqiy-eastus-aroapp-io:6443
           insecure_skip_tls_verify: true
