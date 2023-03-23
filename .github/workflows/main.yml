@@ -1,4 +1,4 @@
-name: POD's Checks
+name: POD's Check
 on: [push]
 env:
   OPENSHIFT_SERVER: api.xxoueqiy.eastus.aroapp.io
