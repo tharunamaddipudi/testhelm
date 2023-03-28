@@ -5,7 +5,7 @@ env:
 jobs:
   deploy:
     name: POD's Check-in
-    runs-on: vm-ubuntu-devops-github-runner-001
+    runs-on: vmss-caas-gitrunner-sandbox
     steps:
       - uses: redhat-actions/oc-login@v1
         with:
