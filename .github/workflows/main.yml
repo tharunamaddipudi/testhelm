@@ -8,7 +8,7 @@ jobs:
     runs-on: macos-latest
     steps:
     - uses: actions/checkout@v1
-    - name: LOGIN
+    - name: LOGIN & Check
       uses: redhat-developer/openshift-actions@v1.1
       with:
           openshift_server_url: https://api.xxoueqiy.eastus.aroapp.io:6443
@@ -17,6 +17,5 @@ jobs:
           openshift_username: tharuna.maddipudi@kyndryl.com/api-xxoueqiy-eastus-aroapp-io:6443
           insecure_skip_tls_verify: true
           reveal_cluster_name: false
-    - name: CHECK
-      run: oc get pods
+          cmd:  oc get pods
         
